@@ -1,0 +1,798 @@
+import java.io.*;
+import java.util.*;
+
+class Contador {
+
+    // Variável para armazenar o número total de comparações
+    private int contador;
+
+    /**
+     * Construtor que inicializa o contador de comparações.
+     */
+    public Contador() {
+        this.contador = 0;
+    }
+
+    /**
+     * Método para incrementar o contador de comparações.
+     */
+    public void incrementar() {
+        this.contador++;
+    }
+
+    /**
+     * Método para obter o número total de comparações realizadas.
+     * 
+     * @return O número total de comparações.
+     */
+    public int getContador() {
+        return this.contador;
+    }
+
+    /**
+     * Método para resetar o contador para zero.
+     */
+    public void resetar() {
+        this.contador = 0;
+    }
+}
+
+class Show {
+
+    // Definir dados
+    private String showId;
+    private String type;
+    private String title;
+    private String director;
+    private String[] cast;
+    private String country;
+    private String dateAdded;
+    private int releaseYear;
+    private String rating;
+    private String duration;
+    private String[] listedIn;
+
+    /*------------------Construtores------------------ */
+
+    /**
+     * Construtor padrão da classe Show.
+     * Inicializa todos os atributos com seus valores padrão (null para Strings e 0
+     * para int, ArrayLists vazios).
+     */
+    Show() {
+        this.showId = null;
+        this.type = null;
+        this.title = null;
+        this.director = null;
+        this.cast = null;
+        this.country = null;
+        this.dateAdded = null;
+        this.releaseYear = 0;
+        this.rating = null;
+        this.duration = null;
+        this.listedIn = null;
+    }
+
+    /**
+     * Construtor da classe Show que permite a atribuição de valores a todos os
+     * atributos.
+     *
+     * @param showId      O ID único do show.
+     * @param type        O tipo do show.
+     * @param title       O título do show.
+     * @param director    O diretor do show.
+     * @param cast        A lista de atores do show.
+     * @param country     O país de produção do show.
+     * @param dateAdded   A data em que o show foi adicionado à plataforma.
+     * @param releaseYear O ano de lançamento do show.
+     * @param rating      A classificação indicativa do show.
+     * @param duration    A duração do show.
+     * @param listedIn    A lista de categorias em que o show está listado.
+     */
+    Show(String showId, String type, String title, String director, String[] cast, String country,
+            String dateAdded, int releaseYear, String rating, String duration, String[] listedIn) {
+        this.showId = showId;
+        this.type = type;
+        this.title = title;
+        this.director = director;
+        this.cast = new String[cast.length];
+        this.country = country;
+        this.dateAdded = dateAdded;
+        this.releaseYear = releaseYear;
+        this.rating = rating;
+        this.duration = duration;
+        this.listedIn = new String[listedIn.length];
+    }
+
+    /*------------------Fim Construtores------------------ */
+
+    /*------------------Getters------------------ */
+
+    /**
+     * Retorna o ID do show.
+     * 
+     * @return showId
+     */
+    public String getShowId() {
+
+        return showId;
+    }
+
+    /**
+     * Retorna o tipo do show.
+     * 
+     * @return type
+     */
+    public String getType() {
+
+        return type;
+    }
+
+    /**
+     * Retorna o título do show.
+     * 
+     * @return title
+     */
+    public String getTitle() {
+
+        return title;
+    }
+
+    /**
+     * Retorna o nome do diretor do show.
+     * 
+     * @return director
+     */
+    public String getDirector() {
+
+        return director;
+    }
+
+    /**
+     * Retorna a lista de atores do show.
+     * 
+     * @return cast
+     */
+    public String[] getCast() {
+
+        return cast;
+    }
+
+    /**
+     * Retorna o país de origem do show.
+     * 
+     * @return country
+     */
+    public String getCountry() {
+
+        return country;
+    }
+
+    /**
+     * Retorna a data em que o show foi adicionado.
+     * 
+     * @return dateAdded
+     */
+    public String getDateAdded() {
+
+        return dateAdded;
+    }
+
+    /**
+     * Retorna o ano de lançamento do show.
+     * 
+     * @return releaseYear
+     */
+    public int getReleaseYear() {
+
+        return releaseYear;
+    }
+
+    /**
+     * Retorna a classificação indicativa do show.
+     * 
+     * @return rating
+     */
+    public String getRating() {
+
+        return rating;
+    }
+
+    /**
+     * Retorna a duração do show.
+     * 
+     * @return duration
+     */
+    public String getDuration() {
+
+        return duration;
+    }
+
+    /**
+     * Retorna as categorias do show.
+     * 
+     * @return listedIn
+     */
+    public String[] getListedIn() {
+
+        return listedIn;
+    }
+
+    /*------------------Fim Getters------------------ */
+
+    /*------------------Setters------------------ */
+
+    /**
+     * Define o ID do show.
+     * 
+     * @param showId ID do show
+     */
+    public void setShowId(String showId) {
+
+        this.showId = (showId.equals("")) ? "NaN" : showId;
+    }
+
+    /**
+     * Define o tipo do show.
+     * 
+     * @param type Tipo do show
+     */
+    public void setType(String type) {
+
+        this.type = (type.equals("")) ? "NaN" : type;
+    }
+
+    /**
+     * Define o título do show.
+     * 
+     * @param title Título do show
+     */
+    public void setTitle(String title) {
+
+        this.title = (title.equals("")) ? "NaN" : title;
+    }
+
+    /**
+     * Define o nome do diretor do show.
+     * 
+     * @param director Nome do diretor
+     */
+    public void setDirector(String director) {
+
+        this.director = (director.equals("")) ? "NaN" : director;
+    }
+
+    /**
+     * Define a lista de atores do show.
+     * 
+     * @param cast Lista de atores
+     */
+    public void setCast(String[] cast) {
+
+        if (cast.length == 1 && cast[0].equals("")) {
+
+            this.cast = new String[] { "NaN" };
+        } else {
+
+            this.cast = cast;
+        }
+    }
+
+    /**
+     * Define o país de origem do show.
+     * 
+     * @param country País de origem
+     */
+    public void setCountry(String country) {
+
+        this.country = (country.equals("")) ? "NaN" : country;
+    }
+
+    /**
+     * Define a data em que o show foi adicionado.
+     * 
+     * @param dateAdded Data adicionada
+     */
+    public void setDateAdded(String dateAdded) {
+
+        this.dateAdded = (dateAdded.equals("")) ? "NaN" : dateAdded;
+    }
+
+    /**
+     * Define o ano de lançamento do show.
+     * 
+     * @param releaseYear Ano de lançamento
+     */
+    public void setReleaseYear(int releaseYear) {
+
+        this.releaseYear = releaseYear;
+    }
+
+    /**
+     * Define a classificação indicativa do show.
+     * 
+     * @param rating Classificação indicativa
+     */
+    public void setRating(String rating) {
+
+        this.rating = (rating.equals("")) ? "NaN" : rating;
+    }
+
+    /**
+     * Define a duração do show.
+     * 
+     * @param duration Duração
+     */
+    public void setDuration(String duration) {
+
+        this.duration = (duration.equals("")) ? "NaN" : duration;
+    }
+
+    /**
+     * Define as categorias em que o show está listado.
+     * 
+     * @param listedIn Lista de categorias
+     */
+    public void setListedIn(String[] listedIn) {
+
+        if (listedIn.length == 1 && listedIn[0].equals("")) {
+
+            this.listedIn = new String[] { "NaN" };
+        } else {
+
+            this.listedIn = listedIn;
+        }
+    }
+
+    /*------------------Fim Setters------------------ */
+
+    /**
+     * Retorna uma cópia (clone) do objeto Show atual.
+     * 
+     * @return novo objeto Show com os mesmos dados
+     */
+    public Show Clone() {
+
+        return new Show(
+                this.showId,
+                this.type,
+                this.title,
+                this.director,
+                this.cast,
+                this.country,
+                this.dateAdded,
+                this.releaseYear,
+                this.rating,
+                this.duration,
+                this.listedIn);
+    }
+
+    /**
+     * Transformar String em inteiro
+     * 
+     * @param str String a ser transformada
+     */
+    public int StrToInt(String str) {
+
+        // Definir dados
+        int len = str.length();
+        int data = 0;
+
+        for (int i = 0; i < len; i++) {
+
+            char c = str.charAt(i);
+            data = (10 * data) + (c - '0');
+        }
+
+        return data;
+    }
+
+    /**
+     * Leitura de dados da entrada e atribuições
+     * 
+     * @param in Entrada de dados
+     */
+    public void Ler(String in) throws Exception {
+
+        // Definir dados
+        String simplify = "";
+        boolean flag = true;
+        int len = in.length();
+
+        // Varrer String para verificar se está entre aspas
+        for (int i = 0; i < len; i++) {
+
+            char c = in.charAt(i);
+            if (c == '"')
+                flag = !flag;
+            else if (c == ',' && flag)
+                simplify += '|';
+            else
+                simplify += c;
+        }
+
+        // Array de Strings simplificado
+        String[] ShowStr = simplify.split("\\|");
+
+        // Settando valores
+        setShowId(ShowStr[0]);
+        setType(ShowStr[1]);
+        setTitle(ShowStr[2]);
+        setDirector(ShowStr[3]);
+
+        // Ajuste na formatação
+        String[] CastAux = ShowStr[4].split(",\\s*");
+        setCast(CastAux);
+
+        setCountry(ShowStr[5]);
+        setDateAdded(ShowStr[6]);
+
+        // Ajuste de variaveis
+        setReleaseYear(StrToInt(ShowStr[7]));
+        setRating(ShowStr[8]);
+        setDuration(ShowStr[9]);
+
+        // Ajuste na formatação
+        String[] ListedInAux = ShowStr[10].split(",\\s*");
+        setListedIn(ListedInAux);
+
+    }
+
+    /**
+     * Função para criar Show pela String de entrada
+     * 
+     * @param in String de entrada
+     * @return Show criado
+     */
+    public static Show Create(String in) throws Exception {
+
+        // Definir dados
+        Show created = new Show();
+
+        // Leitura
+        created.Ler(in);
+        return created;
+    }
+
+    /**
+     * Função para transformar id como String
+     * 
+     * @param data
+     * @return
+     */
+    public static String IdString(String data) {
+
+        // Definir dados
+        String result = "";
+        int i = 0;
+
+        while (data.charAt(i) != ',') {
+
+            result += data.charAt(i);
+            i++;
+        }
+
+        return result;
+    }
+
+    /**
+     * Leitura do arquivo CSV
+     * 
+     * @param caminho Caminho do CSV
+     * @param id      String de entrada
+     */
+    public static Show AddVetor(String caminho, String id) throws Exception {
+
+        // Definir dados
+        Show show = null;
+        File file = new File(caminho);
+
+        if (!file.exists()) {
+
+            throw new FileNotFoundException("Arquivo não encontrado: " + caminho);
+        }
+
+        try (Scanner sc = new Scanner(file)) {
+
+            // Definir dados
+            String data;
+
+            // Verificar linhas
+            while (sc.hasNext()) {
+
+                // Criar show caso seja igual ao id
+                data = sc.nextLine();
+                if (IdString(data).equals(id)) {
+
+                    show = Create(data);
+                    quickSort(0, show.getCast().length - 1, show.getCast());
+                }
+
+            }
+        }
+
+        return show;
+    }
+
+    public void Imprimir() {
+
+        System.out.print("=> ");
+        System.out.print(showId + " ## ");
+        System.out.print(title + " ## ");
+        System.out.print(type + " ## ");
+        System.out.print(director + " ## ");
+
+        System.out.print("[");
+
+        // Elenco
+        for (int i = 0; i < cast.length; i++) {
+
+            if (i == cast.length - 1)
+                System.out.print(cast[i]);
+            else
+                System.out.print(cast[i] + ", ");
+        }
+
+        System.out.print("]");
+
+        System.out.print(" ## ");
+
+        System.out.print(country + " ## ");
+        System.out.print(dateAdded + " ## ");
+        System.out.print(releaseYear + " ## ");
+        System.out.print(rating + " ## ");
+        System.out.print(duration + " ## ");
+
+        System.out.print("[");
+
+        // Categorias
+        for (int i = 0; i < listedIn.length; i++) {
+
+            if (i == listedIn.length - 1)
+                System.out.print(listedIn[i]);
+            else
+                System.out.print(listedIn[i] + ", ");
+        }
+
+        System.out.print("] ##");
+    }
+
+    /**
+     * Realiza a troca de posição de alguns elementos
+     * 
+     * @param i     Índice do primeiro elemento
+     * @param j     Índice do segundo elemento
+     * @param array Array de Strings a ser ordenado
+     */
+    public static void swap(int i, int j, String[] array) {
+
+        String temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+    /**
+     * Método QuickSort de ordenação para Strings
+     * 
+     * @param esq   Índice inicial
+     * @param dir   Índice final
+     * 
+     * @param array Array de Strings a ser ordenado
+     */
+    public static void quickSort(int esq, int dir, String[] array) {
+
+        // Define índices e pivô no meio
+        int i = esq, j = dir;
+        String pivo = array[(esq + dir) / 2];
+
+        // Varredura
+        while (i <= j) {
+
+            // Define posição das Strings menores e maiores que o pivô
+            while (array[i].compareTo(pivo) < 0)
+                i++;
+            while (array[j].compareTo(pivo) > 0)
+                j--;
+
+            // Troca elementos para que menores fiquem antes do pivô
+            // Troca elementos para que maiores fiquem depois do pivô
+            if (i <= j) {
+                swap(i, j, array);
+                i++;
+                j--;
+            }
+        }
+
+        // Chamada recursiva para parte da esquerda e da direita
+        if (esq < j)
+            quickSort(esq, j, array);
+        if (i < dir)
+            quickSort(i, dir, array);
+    }
+
+    /**
+     * Algoritmo de ordenação HeapSort
+     * 
+     * @param array Arranjo de Shows a ser ordenado
+     * @param contador Objeto para contagem de comparações e trocas
+     */
+    @SuppressWarnings("ManualArrayToCollectionCopy")
+    public static void HeapSort(Show[] array, Contador contador) {
+        
+        // Definir dados
+        int n = array.length;
+        Show[] tmp = new Show[n + 1];
+        
+        for (int i = 0; i < n; i++) {
+            
+            tmp[i + 1] = array[i];
+        }
+
+        // Construção do heap
+        for (int tamHeap = 2; tamHeap <= n; tamHeap++) {
+            construir(tmp, tamHeap, contador);
+        }
+
+        // Ordenação
+        int tamHeap = n;
+        while (tamHeap > 1) {
+
+            swap(tmp, 1, tamHeap--);
+            reconstruir(tmp, tamHeap, contador);
+        }
+
+        for (int i = 0; i < n; i++) {
+            array[i] = tmp[i + 1];
+        }
+    }
+
+    /**
+     * Construção do heap
+     * 
+     * @param array Arranjo de Shows
+     * @param tamHeap Tamanho do heap
+     * @param contador Objeto para contagem de operações
+     */
+    public static void construir(Show[] array, int tamHeap, Contador contador) {
+       
+        for (int i = tamHeap; i > 1; i /= 2) {
+       
+            contador.incrementar();
+
+            // Comparação com desempate por título
+            int comparacao = array[i].getDirector().compareToIgnoreCase(array[i / 2].getDirector());
+            if (comparacao > 0 || (comparacao == 0 && array[i].getTitle().compareToIgnoreCase(array[i / 2].getTitle()) > 0)) {
+                
+                swap(array, i, i / 2);
+            } else {
+                
+                i = 0;
+            }
+        }
+    }
+
+    /**
+     * Reconstroi o heap máximo após a remoção da raiz
+     * 
+     * @param array Array de Shows
+     * @param tamHeap Tamanho atual do heap
+     * @param contador Objeto para contagem de operações
+     */
+    public static void reconstruir(Show[] array, int tamHeap, Contador contador) {
+        
+        // Definir dados
+        int i = 1;
+
+        while (i <= (tamHeap / 2)) {
+            
+            int filho = getMaiorFilho(array, i, tamHeap, contador);
+            contador.incrementar();
+
+            
+            int comparacao = array[i].getDirector().compareToIgnoreCase(array[filho].getDirector());
+            if (comparacao < 0 || (comparacao == 0 && array[i].getTitle().compareToIgnoreCase(array[filho].getTitle()) < 0)) {
+                
+                swap(array, i, filho);
+                i = filho;
+            } else {
+                
+                i = tamHeap; 
+            }
+        }
+    }
+
+    /**
+     * Encontra o maior filho do pai
+     * 
+     * @param array Arranjo de Shows
+     * @param i Índice do elemento pai
+     * @param tamHeap Tamanho do heap
+     * @param contador Objeto para contagem de operações
+     * @return Índice do filho com maior valor
+     */
+    public static int getMaiorFilho(Show[] array, int i, int tamHeap, Contador contador) {
+        
+        // Definir dados
+        int filho;
+
+        if (2 * i == tamHeap) { 
+
+            filho = 2 * i;
+        } else {
+
+            contador.incrementar(); 
+            
+            // Comparação com desempate por título
+            int comparacao = array[2 * i].getDirector().compareTo(array[2 * i + 1].getDirector());
+            if (comparacao > 0 || (comparacao == 0 && array[2 * i].getTitle().compareTo(array[2 * i + 1].getTitle()) > 0)) {
+
+                filho = 2 * i;
+            } else {
+
+                filho = 2 * i + 1;
+            }
+        }
+
+        return filho;
+    }
+
+    /**
+     * Realiza a troca de posição entre dois elementos do array
+     * 
+     * @param array Arranjo de Shows
+     * @param i Primeiro índice para troca
+     * @param j Segundo índice para troca
+     * @param contador Objeto para contagem de trocas
+     */
+    public static void swap(Show[] array, int i, int j) {
+
+        Show temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+}
+
+public class Q09 {
+
+    public static void main(String[] args) throws Exception {
+
+        // Definir dados
+        Contador contador = new Contador();
+        long inicio = System.nanoTime();
+        Show[] shows = new Show[300];
+        String entrada1;
+        int i = 0;
+
+        // Leitura dos dados
+        entrada1 = MyIO.readLine();
+
+        while (!entrada1.equals("FIM")) {
+
+            shows[i] = Show.AddVetor("/tmp/disneyplus.csv", entrada1);
+            i++;
+
+            entrada1 = MyIO.readLine();
+        }
+
+        // Ordenação
+        Show.HeapSort(shows, contador);
+
+        // Tamanho do vetor
+        int n = shows.length;
+
+        for (int j = 0; j < n; j++) {
+
+            shows[j].Imprimir();
+            System.out.println();
+        }
+
+        long fim = System.nanoTime();
+        double tempoMs = (fim - inicio) / 1_000_000.0;
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter("1521300_heapsort.txt"))) {
+
+            writer.printf("1521300\t%d\t%.2f\n", contador.getContador(), tempoMs);
+        }
+    }
+}
