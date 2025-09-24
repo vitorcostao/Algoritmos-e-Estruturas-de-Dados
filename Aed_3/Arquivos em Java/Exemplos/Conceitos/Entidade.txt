@@ -1,0 +1,1 @@
+Entidade é um objeto abstraído.

@@ -1,0 +1,1 @@
+Campo é parte de um registro que contém um atributo em forma de bytes.
