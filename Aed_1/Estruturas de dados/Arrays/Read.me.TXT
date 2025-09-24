@@ -1,0 +1,1 @@
+Este estudo tem como função o aprendizado da estrutura de dados Array utilizando a linguagem C.

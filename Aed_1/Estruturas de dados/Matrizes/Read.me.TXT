@@ -1,0 +1,1 @@
+Este estudo tem como função o aprendizado da estrutura de dados Matrizes utilizando a linguagem C.

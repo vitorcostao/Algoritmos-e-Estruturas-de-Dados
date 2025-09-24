@@ -1,0 +1,103 @@
+Structs
+
+O termo Struct é designado para definir uma estrutura de dados amplamente utilizada em algoritmos. Nesse contexto, o motivo pelo qual é proveitoso o uso de tal artifício é que, em uma Struct, é possível agrupar diferentes tipos de dados durante a utilização do programa, ou seja, não é necessário criar tipos distintos de dados para mencionar algo no seu código. 
+Nesse sentido, tomemos como exemplo um cadastro de pessoas. Cada individuo tem características tanto peculiares como comuns, no caso da programação, coletamos os dados de forma comum entre as pessoas, por exemplo, nome, idade, sexo e etc. Desse modo, ao criar um cadastro de pessoas, seria complexo declarar muitas variáveis para corresponder a cada pessoa, ou seja, determinar o índice 1 para a primeira pessoa e declarar variáveis com esse índice em seu nome - int idade1, idade2; char nome1[20], nome2[20].
+Com o uso das Structs, é possível criar uma "nova variável" que agrupe vários tipos de dados, vamos para a demonstração: 
+
+typedef
+struct Pessoa{
+	
+	int     idade;
+	char     sexo;
+	char nome[20];	
+	
+
+} Person;
+
+Neste exemplo, foi utilizado o comando typedef para determinar o nome da variável que queremos (neste caso a Struct) como Person, e também foram declarados os tipos de dados que serão contidos em Person. Agora, em seus métodos, será possível criar uma array de pessoas
+(Person Pessoa[MAX_PESSOAS] -> Entendendo MAX_PESSOAS como um número constante definido) para que seja possível manter a organização em seu código.
+
+
+
+
+
+
+
+Struct para trabalhar Arrays
+
+Neste exemplos, será criada uma variável com objetivo de funcionar como um Array.
+
+typedef 
+struct IntA{
+
+	int lenght;
+	int*  data;
+	int     ix;
+		
+} array;
+
+typedef array* Ponteiro;
+
+No código acima, a Struct foi desenvolvida guardando três dados de mesmo tipo, correspondendo ao tipo inteiro, sendo eles, respectivamente, o tamanho, o valor guardado e o índice o qual este dado está associado. Além disso, determinamos o ponteiro para ser o endereço de memória de uma Struct qualquer que será trabalhada dinamicamente.
+
+
+
+
+Como trabalhar Structs dinâmicas
+
+Para desenvolver Structs dinâmicas, no caso representando um array, será necessário criar uma função que retorne um ponteiro para a Struct definida, isso será feito abaixo com observações
+
+
+Ponteiro NovoArranjo() {
+    
+    int n;
+
+    do {
+        printf("\nDefina o tamanho do Array: ");
+        scanf("%d", &n);
+        getchar();
+
+    } while (n <= 0);
+
+    Ponteiro NewArray = (Ponteiro)malloc(sizeof(array));
+
+    if (!NewArray) {
+
+        printf("\nERROR: Não foi possível alocar memória para a estrutura.\n");
+        return NULL;
+    }
+
+    NewArray->data = (int*)malloc(n * sizeof(int));
+
+    if (!NewArray->data) {
+
+        printf("\nERROR: Não foi possível alocar memória para o array.\n");
+        free(NewArray);
+        return NULL;
+    }
+
+    NewArray->length = n;
+    NewArray->ix = 0;
+
+    return NewArray;
+}
+ 
+
+void LiberarArray(Ponteiro Array){
+    
+    if(Array){
+	if(Array->data){
+	   
+           free(Array->data);
+           	
+	}
+      free(Array); 
+    }
+}
+
+Neste código, foi desenvolvida uma função do tipo Ponteiro(Ponteiro para Struct) que retorna uma estrutura inicializada. Em termos práticos, este código pede a leitura de uma variável n e entra no looping para que o valor lido seja maior que 0 - se o programa encerrar por tempo, é preferível o retorno como NULL da função se o valor lido for negativo. Posteriormente, é necessário alocar memória para a estrutura e testar se a alocação foi bem sucedida, retornando NULL caso não tenha sido, a exemplo da construção de um prédio, é imprescindível que haja materiais para a construção e nisso consiste a alocação de memória. Caso tenha sido feita a reserva no espaço da memória, é preciso agora alocar espaço para os itens dentro da estrutura, neste caso os dados, repetindo a alocação e testando. Ao final, retornar o novo arranjo criado, atribuindo a ele o tamanho como o valor lido em n e o índice inicial como sendo 0.
+OBS: Função para liberar Array criado dinamicamente é necessária. Usa-se tal função no final dos métodos para manter o desempenho do programa estável.
+
+Este guia apresenta o básico da operação de inicialização de uma Struct.
+
+
