@@ -6,8 +6,9 @@ Este repositório contém atividades relacionadas à disciplina de **Algoritmos 
 
 ### 🔹 Estruturas de Dados
 
-- **Arquivos**: Implementação e manipulação eficiente de Arquivos.
-- **Tabelas Hash**: Implementação e manipulação eficiente de Tabelas Hash.
+- **Arquivos**: Utilização de classe genérica de Arquivo para gestão de dados - Abordagem de Processamento de Arquvivos.
+- **Ávore B+**: Implementação da Árvore B+, bem como compreensão de seu funcionamento. 
+- **Tabelas Hash**: Implementação de Tabelas Hash Extensíveis.
 
 ---
 

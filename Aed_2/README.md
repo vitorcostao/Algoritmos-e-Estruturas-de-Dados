@@ -6,18 +6,21 @@ Este repositório contém atividades relacionadas à disciplina de **Algoritmos 
 
 ### 🔹 Estruturas de Dados
 
-- **Arrays**: Implementação e manipulação eficiente de vetores.
-- **Listas**: Implementação e manipulação eficiente de listas.
-- **Filas**: Implementação e manipulação eficiente de Filas.
-- **Pilhas**: Implementação e manipulação eficiente de Pilhas.
+- **Arrays**: Implementação e manipulação eficiente de Vetores.
+- **Listas**: Implementação de Listas estáticas e dinâmicas com operações de inserção, remoção e atualização.
+- **Filas**: Implementação de Filas estáticas e dinâmicas com as operações de Enqueue e Dequeue.
+- **Pilhas**: Implementação de Pilhas estáticas e dinâmicas com as operações de Pop e Push.
+- **Árvores**: Implementação de Árvores Alvinegra, TRIE, Patrícia.
+- **Tabelas Hash**: Implementação de Tabelas Hash que tratam colisões em diferentes aspectos.
 
 ---
 
 ### 📂 Trabalhos práticos
 
-Um projeto prático para praticar funções e procedimentos que resolvem problemas.
+Projetos práticos para praticar POO, algoritmos de ordenação e outras estruturas de dados.
 
 - Manipulações de Strings.
-- Manipulações de arquivos.
-- Trabalhando eficiência dos algoritmos.
+- Manipulação de dados em arquivos .CSV.
+- Eficiência dos algoritmos.
+- Algoritmos de ordenação.
 - Comentários no padrão Java.
