@@ -27,6 +27,22 @@ Exemplo: em um **sistema de gerenciamento de clientes**, é possível definir:
 - Um índice baseado no **nome do cliente**  
 - Um índice baseado no **e-mail do cliente**  
 
+## Classificação dos Índices
+
+Os índices podem ser classificados de diversas maneiras, dependendo de sua função e organização:
+
+- **Primários ou secundários**:  
+  - Primários: baseados na chave primária do arquivo; cada registro possui um único índice primário.  
+  - Secundários: baseados em outros atributos, permitindo buscas adicionais sem alterar a ordem do arquivo.  
+
+- **Diretos ou indiretos**:  
+  - Diretos: o índice aponta diretamente para o endereço físico do registro no arquivo.  
+  - Indiretos: o índice aponta para uma posição intermediária ou tabela de ponte, que então referencia o registro.  
+
+- **Densos ou esparsos**:  
+  - Densos: cada registro do arquivo possui uma entrada correspondente no índice.  
+  - Esparsos: nem todos os registros possuem uma entrada no índice; normalmente usado em arquivos ordenados para reduzir o tamanho do índice.  
+
 ## Vantagens
 
 - **Busca eficiente e acelerada**, mesmo em arquivos de grande volume.  
