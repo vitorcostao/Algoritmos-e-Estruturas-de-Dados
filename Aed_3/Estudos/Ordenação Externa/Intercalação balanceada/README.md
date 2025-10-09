@@ -27,3 +27,11 @@ por um segundo conjunto de arquivos temporários, também de forma balanceada:
 O processo se repete, com a intercalação de um segmento de cada arquivo temporário, gerando segmentos ainda maiores e escritos em um novo conjunto de arquivos temporários. 
 
 As intercalações de segmentos ordenados nos arquivos temporários acabam quando restar apenas um único segmento ordenado contendo todos os dados.
+
+### Intercalação de Segmento Variável
+
+Em termos práticos, a intercalação de segmento variável segue o mesmo princípio da intercalação balanceada, ou seja, vários segmentos previamente ordenados são intercalados para formar um novo conjunto de registros em ordem crescente.
+
+A principal diferença, entretanto, está no tamanho dos segmentos, que não precisa ser fixo. Em vez de trabalhar com blocos de tamanho uniforme, como ocorre na intercalação balanceada, esse método permite que segmentos de diferentes tamanhos sejam combinados em cada etapa.
+
+Essa abordagem pode proporcionar melhor aproveitamento do espaço disponível nos arquivos temporários e reduzir o número de passadas necessárias, especialmente quando alguns segmentos já são significativamente maiores que outros.
