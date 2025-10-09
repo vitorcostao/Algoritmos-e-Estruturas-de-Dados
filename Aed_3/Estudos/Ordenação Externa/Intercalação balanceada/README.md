@@ -35,3 +35,13 @@ Em termos práticos, a intercalação de segmento variável segue o mesmo princ�
 A principal diferença, entretanto, está no tamanho dos segmentos, que não precisa ser fixo. Em vez de trabalhar com blocos de tamanho uniforme, como ocorre na intercalação balanceada, esse método permite que segmentos de diferentes tamanhos sejam combinados em cada etapa.
 
 Essa abordagem pode proporcionar melhor aproveitamento do espaço disponível nos arquivos temporários e reduzir o número de passadas necessárias, especialmente quando alguns segmentos já são significativamente maiores que outros.
+
+### Intercalação de Seleção e Substituição
+
+A intercalação de seleção e substituição é uma técnica utilizada para gerar segmentos ordenados maiores durante a fase inicial da ordenação externa. O objetivo é diminuir o número de passadas necessárias nas etapas seguintes, tornando o processo mais eficiente.
+
+Inicialmente, são carregados na memória os B registros que podem ser processados de uma só vez. Em seguida, o menor registro é selecionado (geralmente por meio de uma estrutura como um heap) e gravado no arquivo de saída. Após isso, um novo registro é lido do arquivo de entrada para substituir o que foi removido.
+
+Se esse novo registro for maior ou igual ao último registro gravado, ele permanece no mesmo segmento; caso contrário, ele é separado para formar o próximo segmento. O processo continua até que todos os registros sejam processados e distribuídos em segmentos ordenados.
+
+Essa técnica permite que os segmentos gerados sejam, em média, maiores do que os criados por métodos tradicionais, o que reduz a quantidade de intercalações necessárias e melhora o desempenho geral da ordenação externa.
