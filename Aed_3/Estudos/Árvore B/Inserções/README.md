@@ -39,4 +39,17 @@ Tendo localizado onde será a inserção, basta analisar qual dos casos a inser�
     - Se o elemento for inserido à direita, promova o menor daquela página. 
 
 >OBS: Se necessário, continue dividindo as páginas em um processo recursivo.
+
+
+## Exemplos
+
+### Inserção da chave 11
+
+<img width="929" height="319" alt="image" src="https://github.com/user-attachments/assets/b7972fbb-e536-4c9d-b90d-89b3aa653eec" />
+
+<img width="929" height="307" alt="image" src="https://github.com/user-attachments/assets/772491df-8eee-42e8-ba94-96290b834823" />
+
+> OBS: Ao inserir em uma página cheia, é necessário realizar divisão de páginas, assim é necessário também promover uma chave como já mencionado.
+
+
   
