@@ -1,5 +1,3 @@
-package service.Genérico.Árvore;
-
 import java.io.IOException;
 
 public interface RegistroArvoreBMais<T> {
