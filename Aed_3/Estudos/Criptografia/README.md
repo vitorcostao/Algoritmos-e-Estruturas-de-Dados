@@ -33,3 +33,64 @@ As técnicas criptográficas são empregadas com o objetivo de garantir três pr
 - **Privacidade:** assegura que apenas indivíduos autorizados tenham acesso aos dados.
 - **Integridade:** garante que as informações não tenham sido alteradas de forma indevida.
 - **Autenticidade:** possibilita a verificação da identidade do aut
+
+
+
+---
+
+
+
+# Algoritmos Criptográficos
+
+Há muitos algoritmos criptográficos desenvolvidos ao longo das últimas décadas. Alguns foram abandonados por não oferecerem mais segurança suficiente, outros evoluíram em variantes e modos de operação.
+
+
+## Algoritmos de Chave Simétrica
+
+Entre os algoritmos de chave simétrica mais conhecidos, destacam-se:
+
+- **Data Encryption Standard (DES)**
+- **Triple DES (3DES ou TDES)**
+- **Advanced Encryption Standard (AES)**
+
+
+## Data Encryption Standard (DES)
+
+O DES é um cifrador de bloco. Ele opera em blocos de 64 bits e utiliza uma chave efetiva de 56 bits. Hoje,
+é considerado inseguro para aplicações modernas, principalmente devido à vulnerabilidade a ataques de força bruta.
+
+---
+
+## Triple DES (3DES)
+
+O Triple DES surgiu como uma tentativa de aumentar a segurança do DES por meio da aplicação do algoritmo três vezes consecutivas com chaves diferentes. Mais seguro que o DES, porém menos eficiente,
+além de, gradualmente, estar sendo substituído por algoritmos mais modernos.
+
+---
+
+## Advanced Encryption Standard (AES)
+
+O AES é o padrão atual para criptografia simétrica. Ele opera com blocos de 128 bits e permite chaves de 128, 192 ou 256 bits. É utilizado em sistemas modernos devido à alta segurança e desempenho.
+
+---
+
+## Outros algoritmos
+
+
+### Chave Simétrica
+- IDEA  
+- Blowfish  
+- Twofish  
+
+### Chave Assimétrica
+- Diffie-Hellman  
+- RSA  
+
+### Funções Hash Criptográficas
+- MD5  
+- SHA-1  
+- SHA-2  
+- SHA-3  
+
+
+
