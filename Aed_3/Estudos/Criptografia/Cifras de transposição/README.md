@@ -1,46 +1,57 @@
-# Cifras de Transposição
+# Cifra de fluxo
 
-As **Cifras de Transposição** são fundamentais para a criptografia. Elas consistem em formas diferentes, em relação às de substituição, de cifrar e decifrar determinadas mensagens.
-
----
-
-## Como funcionam as cifras de transposição.
-
-Uma **Cifra de Transposição** é um algoritmo criptográfico no qual os caracteres do texto plano são rearranjados em uma nova ordem, sem que o valor de cada caractere individual seja alterado. O processo de cifragem consiste na **troca de posição** dos símbolos.
-
-O processo de transformação é definido pelas seguintes funções:
-
-| Operação       | Descrição                                                                                |
-| :------------- | :--------------------------------------------------------------------------------------- |
-| **Cifragem**   | Transformação da mensagem ($m$) em texto cifrado ($c$) por meio da chave ($k$).          |
-| **Decifragem** | Recuperação da mensagem original ($m$) a partir do texto cifrado ($c$) e da chave ($k$). |
-
-A chave ($k$) estabelece o mapeamento entre a posição original e a nova posição do caractere. A segurança está na confidencialidade da chave ($k$).
+As **Cifras de Fluxo** são fundamentais para a criptografia. 
+Elas consistem em formas diferentes, em relação às de substituição e às de transposição, 
+de cifrar e decifrar determinadas mensagens.
 
 ---
 
-## Exemplos de Cifras
+## Cifras de Fluxo
 
-A seguir, apresenta-se um exemplo notável de cifra de transposição:
+As Cifras de Fluxo são algoritmos de chave simétrica que operam combinando o f
+luxo de bits da mensagem (*bitstream*) com um fluxo de bits de chave (*keystream*).
 
-### Cifra das Colunas
+### Operação Fundamental
 
-A **Cifra das Colunas** é um método de transposição que utiliza uma palavra-chave para definir a ordem de leitura das colunas de uma matriz.
+A encriptação é tipicamente realizada por meio de uma simples operação 
+**OU Exclusivo (XOR)**, devido às suas propriedades reversíveis:
 
-O processo de cifragem:
-1.  **Escrita:** O texto plano é escrito em uma matriz, preenchendo-a linha por linha. O número de colunas é determinado pelo comprimento da palavra-chave.
-2.  **Leitura:** O texto cifrado é gerado pela leitura das colunas, seguindo a ordem numérica estabelecida pelos valores dos caracteres da palavra-chave.
+| Operação       | Fórmula                    |
+| :------------- | :------------------------- |
+| **Cifragem**   | $c = E(k, m) = k \oplus m$ |
+| **Decifragem** | $m = D(k, c) = k \oplus c$ |
 
-**Exemplo Ilustrativo:**
+Onde $m$ é a mensagem, $k$ é o fluxo de chave (*keystream*) e $c$ é o texto cifrado.
 
-Considerando a palavra-chave **CARO**, que define a ordem de leitura das colunas (C=2, A=1, R=4, O=3), e a mensagem **FIMDESEMANA**:
+### One Time Pad (OTP)
 
-| C (2) | A (1) | R (4) | O (3) |
-| :---: | :---: | :---: | :---: |
-| F     | I     | M     | D     |
-| E     | S     | E     | M     |
-| A     | N     | A     |       |
+O **One Time Pad (OTP)** é o exemplo teórico de segurança máxima em cifras de fluxo.
 
-A leitura das colunas na ordem 1, 2, 3, 4 resulta no texto cifrado: **ISNFEADMMEA**.
+O OTP é **matematicamente inquebrável**, desde que duas condições essenciais sejam atendidas:
+1.  A chave deve ser uma *string* de bits **verdadeiramente aleatória**.
+2.  A chave deve ter o **mesmo tamanho** da mensagem a ser criptografada.
+3.  A chave deve ser utilizada **apenas uma vez** (*one time*).
 
-A decifragem exige a reconstrução da matriz com base na palavra-chave e a leitura subsequente linha por linha. A segurança desta cifra depende do comprimento e da aleatoriedade da palavra-chave.
+### Geradores de Chaves Pseudoaleatórias (PRNG) : @thigogomes (Pesquisa de TI - III)
+
+Os algoritmos modernos de cifras de fluxo utilizam um **Gerador de Números Pseudoaleatórios (PRNG)**.
+
+O PRNG utiliza uma **chave semente** para gerar um fluxo de chave (*keystream*) 
+que se comporta de maneira pseudoaleatória.
+
+| Operação       | Fórmula                       |
+| :------------- | :---------------------------- |
+| **Cifragem**   | $c = \text{PRNG}(k) \oplus m$ |
+| **Decifragem** | $m = \text{PRNG}(k) \oplus c$ |
+
+
+---
+
+## Análise de Cifras de Fluxo
+
+As Cifras de Fluxo apresentam um conjunto de características que definem sua aplicação e vulnerabilidades:
+
+| Vantagens                                                                                                       | Desvantagens                                                                                                                                                    |
+| :-------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Alta Velocidade:** Algoritmos lineares no tempo e constantes no espaço, permitindo processamento rápido.      | **Baixa Difusão:** Toda a informação de um símbolo de texto plano está contida em um único símbolo de texto cifrado.                                            |
+| **Baixa Propagação de Erros:** Um erro na cifragem de um símbolo dificilmente afetará os símbolos subsequentes. | **Suscetibilidade a Inserções e Modificações:** Um intruso pode inserir texto falso que pode parecer autêntico, exigindo mecanismos de autenticação adicionais. |
